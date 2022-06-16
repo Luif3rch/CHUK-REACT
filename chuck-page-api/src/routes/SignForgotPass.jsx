@@ -12,13 +12,24 @@ import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // IMPORT MATERIAL UI COMPONENTS END
-import ChuckGit from '../img/chucknorris-gif.gif';
 
-
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="">
+        CHUCK-PAGE-API
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const theme = createTheme();
 
@@ -42,7 +53,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://www.pngitem.com/pimgs/m/157-1579962_chuck-norris-chuck-norris-cartoon-pics-transparent-hd.png)',
+            backgroundImage: 'url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/chuck-norris-stars-on-art.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -60,17 +71,11 @@ export default function SignInSide() {
               alignItems: 'center',
             }}
           >
-
-            
-            <Avatar sx={{ m: 1, bgcolor: 'warning.main' }}>
-            <img src={ChuckGit} />
-            
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <LockOutlinedIcon />
             </Avatar>
-           
-  
-
             <Typography component="h1" variant="h5">
-              CHUCK API LOGIN
+              Sign in
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
@@ -123,19 +128,5 @@ export default function SignInSide() {
         </Grid>
       </Grid>
     </ThemeProvider>
-  );
-}
-
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://www.linkedin.com/in/luiferch/">
-        LUIS FERNANDO ESPINOSA HERRERA
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
   );
 }

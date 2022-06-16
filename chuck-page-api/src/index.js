@@ -7,6 +7,8 @@ import {
 import App from "./App";
 import Expenses from "./routes/expenses";
 import Invoices from "./routes/invoices";
+import SignInSide from "./routes/SignInSide";
+import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -14,7 +16,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route path="/" element={<SignInSide />} />
       <Route path="expenses" element={<Expenses />} />
       <Route path="invoices" element={<Invoices />} />
     </Routes>
