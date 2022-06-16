@@ -4,11 +4,20 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import App from "./App";
-import Expenses from "./routes/expenses";
-import Invoices from "./routes/invoices";
+
+
+//LOGIN
 import SignInSide from "./routes/SignInSide";
+import SignIn from "./routes/SignIn";
+import SignUp from "./routes/SignUp";
+//APP
+import App from "./App";
+//
+import Categories from "./routes/Categories";
+
+
 import reportWebVitals from "./reportWebVitals";
+
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -17,8 +26,12 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<SignInSide />} />
-      <Route path="expenses" element={<Expenses />} />
-      <Route path="invoices" element={<Invoices />} />
+      <Route path="SignInSide" element={<SignInSide />} />
+      <Route path="SignIn" element={<SignIn />} />
+      <Route path="SignUp" element={<SignUp />} />
+
+      <Route path="App" element={<App />} />
+      <Route path="Categories" element={<Categories />} />
     </Routes>
   </BrowserRouter>
 );
