@@ -12,16 +12,26 @@ import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import '@fontsource/roboto/500.css';
 
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
+import Copyright from '../components/Copyright';
 import ChuckGif from '../img/ChuckGif.gif';
 
 
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#e53935',
+    },
+    secondary: {
+      main: '#d32f2f',
+    },
+  },
+});
 
 export default function SignInSide() {
   const handleSubmit = (event) => {
@@ -61,13 +71,13 @@ export default function SignInSide() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
               <img src={ChuckGif} alt="Chuck" />
             </Avatar>
 
 
-            <Typography component="h1" variant="h5">
-              Sign in
+            <Typography component="h1" variant="h5" >
+             CHUCK PAGE API
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
@@ -98,18 +108,20 @@ export default function SignInSide() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, bgcolor: 'error.main' } }
+                
               >
                 Sign In
               </Button>
+              
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link href="/ForgetPass" variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/SignUp" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
@@ -122,15 +134,6 @@ export default function SignInSide() {
     </ThemeProvider>
   );
 }
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://www.linkedin.com/in/luiferch/">
-        LUIS FERNANDO ESPINOSA HERRERA
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
+
+

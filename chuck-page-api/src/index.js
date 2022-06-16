@@ -8,7 +8,7 @@ import {
 
 //LOGIN
 import SignInSide from "./routes/SignInSide";
-import SignIn from "./routes/SignIn";
+import ForgetPass from "./routes/ForgetPass";
 import SignUp from "./routes/SignUp";
 //APP
 import App from "./App";
@@ -27,7 +27,7 @@ root.render(
     <Routes>
       <Route path="/" element={<SignInSide />} />
       <Route path="SignInSide" element={<SignInSide />} />
-      <Route path="SignIn" element={<SignIn />} />
+      <Route path="ForgetPass" element={<ForgetPass />} />
       <Route path="SignUp" element={<SignUp />} />
 
       <Route path="App" element={<App />} />
