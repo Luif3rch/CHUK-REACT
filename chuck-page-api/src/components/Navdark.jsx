@@ -50,8 +50,8 @@ const Navdark = () => {
          JOKE RANDOM
         </Link>
       </nav>
-      <Button href="#"  color="inherit" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-        Login
+      <Button href="/"  color="inherit" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+        Loginout
       </Button>
     </Toolbar>
   </AppBar>
