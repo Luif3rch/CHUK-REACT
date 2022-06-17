@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from "react";
 
 
 
@@ -6,8 +6,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -16,48 +14,52 @@ import '@fontsource/roboto/500.css';
 
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+//componentes
 import Copyright from '../components/Copyright';
 import ChuckGif from '../img/ChuckGif.gif';
 
+//servicios
+import LoginService from '../services/login.js';
 
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#e53935',
-    },
-    secondary: {
-      main: '#d32f2f',
-    },
-  },
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//
 
 
 export default function SignInSide() {
+
+
+
+ 
+  
+  
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  
+
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#e53935',
+      },
+      secondary: {
+        main: '#d32f2f',
+      },
+    },
+  });
+  
+
+
+
+  useEffect(() => {
+    console.log('SignInSide');
+  }, [])
+
+//
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
+      username: data.get('username'),
       password: data.get('password'),
     });
   };
@@ -103,11 +105,16 @@ export default function SignInSide() {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
                 autoFocus
+                label="username"
+                autoComplete="username"
+
+
+                id="username"
+                name="username"
+                value={username}
+                onChange={({target}) => setUsername(target.value)}
+                
               />
               <TextField
                 margin="normal"
@@ -115,14 +122,14 @@ export default function SignInSide() {
                 fullWidth
                 name="password"
                 label="Password"
+                value={password}
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                autoComplete="password"
+                onChange={({target}) => setPassword(target.value)}
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
+
+
               <Button
                 type="submit"
                 fullWidth
