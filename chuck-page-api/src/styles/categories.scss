@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 
 body {
     margin: 0;
@@ -13,8 +15,16 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 20%;
+    padding: 10px;
   }
+
+  
 
 h1{
     text-align: center;
+}
+
+
+.list-group {
+    margin-bottom: 0;
 }

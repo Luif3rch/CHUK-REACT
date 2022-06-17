@@ -1,13 +1,13 @@
 import React from 'react'
+import '../styles/categories.scss'
 import Navdark from '../components/Navdark';
+
+
 function categories() {
   return (
     <>
-    
     <Navdark/ >
-    <div>
-    <h1> Elige tus categorias favoritas</h1> 
-    </div>
+    <h1 className='center'>CATEGORIES PAGE </h1>
     </>
   )
 }
