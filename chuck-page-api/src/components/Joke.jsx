@@ -8,7 +8,9 @@ const Joke = (props) =>{
             <a href="https://api.chucknorris.io" target="_blank" rel="noreferrer">
                 <img src="https://api.chucknorris.io/img/chucknorris_logo_coloured_small@2x.png" alt="" className="cn-image" />
             </a>
-            <button onClick={props.new} className="button-new-joke">New Joke</button>
+
+            
+            <button onClick={props.new} className="button-new-joke">RANDOM JOKE</button>
 
             <h1 className="joke">{props.joke}</h1>
 

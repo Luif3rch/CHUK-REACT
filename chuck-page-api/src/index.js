@@ -25,13 +25,15 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
+      
       <Route path="/" element={<SignInSide />} />
       <Route path="SignInSide" element={<SignInSide />} />
       <Route path="ForgetPass" element={<ForgetPass />} />
-      <Route path="SignUp" element={<SignUp />} />
-
+      <Route path="SignUp" element={<SignUp />} />  
+      
       <Route path="App" element={<App />} />
       <Route path="Categories" element={<Categories />} />
+
     </Routes>
   </BrowserRouter>
 );
