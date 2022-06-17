@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 
-
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,30 +9,18 @@ import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import '@fontsource/roboto/500.css';
-
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+import { Form, Alert } from "react-bootstrap";
+
 //componentes
 import Copyright from '../components/Copyright';
 import ChuckGif from '../img/ChuckGif.gif';
-
-//servicios
-import LoginService from '../services/login.js';
-
-//
+import Home from "./Home";
 
 
 export default function SignInSide() {
-
-
-
- 
-  
-  
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  
 
 
   const theme = createTheme({
@@ -47,8 +34,10 @@ export default function SignInSide() {
     },
   });
   
-
-
+  const [flag, setFlag] = useState(false);
+  const [usernamellog, setUsernamelog] = useState(" ");
+  const [passwordlog, setPasswordlog] = useState(" ");
+  const [home, setHome] = useState(true);
 
   useEffect(() => {
     console.log('SignInSide');
@@ -58,14 +47,40 @@ export default function SignInSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+
+    ///te
     console.log({
       username: data.get('username'),
       password: data.get('password'),
+      
     });
+
+    let pass = localStorage
+      .getItem("chuckPassword")
+      .replace(/"/g, "");
+    let user = localStorage.getItem("chuckUser").replace(/"/g, "");
+    
+
+    if (!usernamellog || !passwordlog) {
+      setFlag(true);
+      console.log("EMPTY");
+    } else if (passwordlog !== pass || usernamellog !== user) {
+      setFlag(true);
+    } else {
+      setHome(!home);
+      setFlag(false);
+    }
+
+ 
+
+
   };
+
+
 
   return (
     <ThemeProvider theme={theme}>
+    {home ? (
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
@@ -97,7 +112,13 @@ export default function SignInSide() {
             </Avatar>
 
 
-            <Typography component="h1" variant="h5" >
+            <Typography sx={{ fontWeight: 1000, m: 1 }} component="h1" variant="h5" >
+            {flag && (
+                <Alert color="primary" variant="danger">
+                🤯 Are you sure you're okay? 
+                  maybe you forgot your password or username 😳
+                </Alert>
+              )}
              CHUCK PAGE API
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
@@ -108,12 +129,7 @@ export default function SignInSide() {
                 autoFocus
                 label="username"
                 autoComplete="username"
-
-
-                id="username"
-                name="username"
-                value={username}
-                onChange={({target}) => setUsername(target.value)}
+                onChange={(event) => setUsernamelog(event.target.value)}
                 
               />
               <TextField
@@ -122,11 +138,8 @@ export default function SignInSide() {
                 fullWidth
                 name="password"
                 label="Password"
-                value={password}
-                type="password"
-                id="password"
                 autoComplete="password"
-                onChange={({target}) => setPassword(target.value)}
+                onChange={(event) => setPasswordlog(event.target.value)}
               />
 
 
@@ -157,6 +170,9 @@ export default function SignInSide() {
           </Box>
         </Grid>
       </Grid>
+      ) : (
+        <Home />
+      )}
     </ThemeProvider>
   );
 }
