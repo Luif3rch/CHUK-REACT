@@ -1,0 +1,37 @@
+@import '~@csstools/normalize.css';/* bring in normalize.css styles */
+@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap.scss';
+/* rest of app styles */
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+ audio,
+ video {
+   display: inline-block;
+ }
+ 
+ /**
+  * Remove the border on images inside links in IE 10-.
+  */
+ 
+ img {
+   border-style: none;
+ }
