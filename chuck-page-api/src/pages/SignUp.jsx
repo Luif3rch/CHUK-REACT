@@ -12,9 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-
-import { Form, Alert } from "react-bootstrap";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 
 import Copyright from '../components/Copyright';
 
@@ -60,9 +59,10 @@ const theme = createTheme({
     });
     if (!username ||!password) {
       setFlag(true);
+     
     } else {
       setFlag(false);
-
+   
       localStorage.setItem(
         "chuck1-ID",
          JSON.stringify(small_id));
@@ -77,13 +77,15 @@ const theme = createTheme({
       );
       
       console.log("Saved in Local Storage");
-
+     
+      alert("✅ SIGN UP SUCCESSFUL ✅");  
       setLogin(!login);
     }
 
-
   
   };
+
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -102,9 +104,10 @@ const theme = createTheme({
           </Avatar>
           <Typography component="h1" variant="h5">
           {flag && (
-                <Alert color="primary" variant="danger">
-                  🤔 🛑maybe you forgot a field 🛑 
-                </Alert>
+
+            <Alert severity="error">
+              <AlertTitle>🤔 🛑maybe you forgot a field 🛑 </AlertTitle>
+            </Alert>
               )}
               
                Sign up 
@@ -120,6 +123,7 @@ const theme = createTheme({
                   label="username"
                   name="username"
                   autoComplete="username"
+                  autoFocus
                   value={username}
                   onChange={(event) => setUsername(event.target.value)}
                 />

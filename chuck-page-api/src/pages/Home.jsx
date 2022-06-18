@@ -47,7 +47,7 @@ const listItems = category.map((categoria) =>
     <>
     <Navdark/ >
     <div className="lista">
-    <img src={Chucknorris} className="center" alt="chucknorris" />
+    <img src={Chucknorris} className="center-chuck" alt="chucknorris" />
       <h1>Choose your favorite categories</h1>
       <FormGroup>
       {listItems}

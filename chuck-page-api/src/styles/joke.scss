@@ -8,6 +8,15 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
 
+
+.joke{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    font-size: 30px;
+}
+
 .center {
     padding-top: 80px;
     padding-bottom: 40px;
@@ -21,9 +30,26 @@ h1{
     text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
+  .center {
+    padding-top: 30px;
+    padding-bottom: 10px;
+      width: 50%;
+  }
+}
+
+@media screen and (max-width: 400px) {
     .center {
+      padding-top: 30px;
+      padding-bottom: 10px;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .joke {
         width: 80%;
+        font-size: 17px;
     }
 }
   

@@ -21,14 +21,11 @@ const Joke = (props) =>{
 
         <div>
        
-          
-
-                <a href="/Home" target="_blank" rel="noreferrer">
-                            <img src="https://api.chucknorris.io/img/chucknorris_logo_coloured_small@2x.png"  alt="" className="center" />
-                        </a>
+                <img src="https://api.chucknorris.io/img/chucknorris_logo_coloured_small@2x.png"  alt="" className="center" />
+                       
         
 
-                <h1 className="joke">{props.joke}</h1>
+                <p className="joke">{props.joke}</p>
         
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
