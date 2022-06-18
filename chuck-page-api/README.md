@@ -2,6 +2,7 @@
 
 
 DEBES TENER INSTALADO GIT
+
 YOU MUST HAVE GIT INSTALLED
 
 git clone https://github.com/Luif3rch/react
