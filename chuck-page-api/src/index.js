@@ -12,7 +12,7 @@ import ForgetPass from "./pages/ForgetPass";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 //COMPONENTS
-import App from "./App";
+
 import Categories from "./pages/Categories";
 import JokeRandom from "./pages/JokeRandom";
 
@@ -23,17 +23,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <BrowserRouter>
-    <Routes>
-      
+    <Routes> 
       <Route path="/" element={<Login />} />
       <Route path="ForgetPass" element={<ForgetPass />} />
       <Route path="SignUp" element={<SignUp />} />  
-      
+
       <Route path="Home" element={<Home />} />
       <Route path="Categories" element={<Categories />} />
-
       <Route path="JokeRandom" element={<JokeRandom />} />
-
     </Routes>
   </BrowserRouter>
 );

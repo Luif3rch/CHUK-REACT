@@ -3,6 +3,12 @@ import Navdark from '../components/Navdark';
 
 import Chucknorris from '../img/chuck-norris.png';
 import '../styles/home.scss'
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container'
+import Button from '@mui/material/Button'
 
 function Home() {
  
@@ -27,18 +33,12 @@ function Home() {
 
 
 const listItems = category.map((categoria) =>
-<div className="row">
-    <div key={categoria.toString()} className="center p-2 d-grid gap-3 col-8">
-    <div className="form-check">
-      <input className="h4 form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"></input>
-      <label className="h4 form-check-label" for="flexCheckIndeterminate">
-      {categoria}</label>
-     
-    </div>
-     
+    <Container maxWidth="xs" key={categoria}>
 
-    </div>
-</div>
+          <FormControlLabel control={<Checkbox />} label={categoria} />
+
+    </Container>
+   
 );
 
 
@@ -49,9 +49,16 @@ const listItems = category.map((categoria) =>
     <Navdark/ >
     <div className="lista">
     <img src={Chucknorris} className="center" alt="chucknorris" />
-      <h1>Elige tus categorias favoritas</h1>
-      <div>{listItems}</div>
-
+      <h1>Choose your favorite categories</h1>
+      <FormGroup>
+      {listItems}
+      </FormGroup>
+      <Container maxWidth="xs">
+        <Button variant="contained" color="error">
+          SAVE SELECTION OF CATEGORIES
+        </Button>
+      </Container>
+      
     </div>
     </>
   )
