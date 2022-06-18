@@ -51,7 +51,7 @@ const Navdark = () => {
         </Link>
       </nav>
       <Button href="/"  color="inherit" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-        Loginout
+        Login out
       </Button>
     </Toolbar>
   </AppBar>
