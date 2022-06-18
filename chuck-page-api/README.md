@@ -6,6 +6,7 @@ DEBES TENER INSTALADO GIT
 git clone https://github.com/Luif3rch/react
 
 cd react
+
 cd chuck page api
 
 ## INSTALL NODE JS
