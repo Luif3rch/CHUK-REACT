@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState } from "react";
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,26 +15,48 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Copyright from '../components/Copyright';
 
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#e53935',
-    },
-    secondary: {
-      main: '#d32f2f',
-    },
-  },
-});
+
+
 
 export default function SignUp() {
+
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#e53935',
+      },
+      secondary: {
+        main: '#d32f2f',
+      },
+    },
+  });
+  
+
+
+
+  var user = localStorage.getItem('chuckUser');
+  var password = localStorage.getItem('chuckPassword');
+
+  const [keypass, setkeypass] = useState('');
+ 
   const handleSubmit = (event) => {
+  
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      keypass: data.get('keypass'),
     });
+    if (keypass === '42') {
+      alert("YOUR USER IS: 👉 " + user +  "    YOUR PASS IS:👉 " + password);
+    }else{
+      alert("❌THE answer is WRONG!!❌");
+    }
+  
+   
   };
+
+ 
 
   return (
     <ThemeProvider theme={theme}>
@@ -56,16 +79,7 @@ export default function SignUp() {
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   required
@@ -74,7 +88,9 @@ export default function SignUp() {
                   label="The meaning of life, the universe and everything else?"
                   type="password"
                   id="keypass"
-                  autoComplete="new-keypass"
+                  autoComplete="keypass"
+                  value={keypass}
+                  onChange={(event) => setkeypass(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
