@@ -21,7 +21,7 @@ import Copyright from '../components/Copyright';
 import { v4 as uuid } from 'uuid';
 
   const unique_id = uuid();
-  const small_id = unique_id.slice(0,8)
+  const small_id = unique_id.slice(0,6)
   
 
 
@@ -45,6 +45,8 @@ const theme = createTheme({
   
   const [flag, setFlag] = useState(false);
   const [login, setLogin] = useState(true);
+
+  
   
  
   
@@ -64,7 +66,7 @@ const theme = createTheme({
       setFlag(false);
    
       localStorage.setItem(
-        "chuck1-ID",
+        "chuck-ID",
          JSON.stringify(small_id));
 
       localStorage.setItem(
@@ -74,6 +76,11 @@ const theme = createTheme({
       localStorage.setItem(
         "chuckPassword",
         JSON.stringify(password)
+      );
+
+      localStorage.setItem(
+        "chuckCategories",
+        JSON.stringify([])
       );
       
       console.log("Saved in Local Storage");
